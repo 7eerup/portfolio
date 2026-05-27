@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio</title>
+
+  <link rel="stylesheet" href="./css/style.css" />
+  <script src="./js/main.js" defer></script>
+</head>
+<body>
+  <header class="header">
+    <nav class="nav" aria-label="메인 메뉴">
+      <a href="#hero" class="logo">Portfolio</a>
+
+      <button class="menu-toggle" type="button" aria-label="메뉴 열기">
+        ☰
+      </button>
+
+      <ul class="nav-menu">
+        <li><a href="#introduction">Introduction</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <button class="theme-toggle" type="button">
+        다크 모드
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="hero" class="hero section">
+      <h1>AI Software Engineer</h1>
+      <p>Kwon Chang-beom is an AI Software Engineer based in Seoul.</p>
+      <a href="#projects" class="btn">프로젝트</a>
+    </section>
+
+    <section id="introduction" class="introduction section">
+      <h2>Introduction</h2>
+      <article class="introduction-content">
+        <img src="./images/profile.png" alt="프로필 사진" />
+        <p>
+          안녕하세요! AI 소프트웨어 엔지니어로, HTML, CSS, JavaScript를 활용하여 사용자 친화적인 웹 애플리케이션을 개발하는 것을 즐깁니다.
+          또한, Git과 GitHub을 통해 협업과 버전 관리를 효율적으로 수행할 수 있습니다.
+          Python을 사용하여 데이터 분석과 머신러닝 모델 개발에도 관심이 많습니다.
+        </p>
+      </article>
+    </section>
+
+        <section id="projects" class="projects section">
+      <h2>Projects</h2>
+
+      <div class="project-filter">
+        <button type="button" class="filter-btn active" data-filter="all">전체</button>
+        <button type="button" class="filter-btn" data-filter="html">HTML</button>
+        <button type="button" class="filter-btn" data-filter="javascript">JavaScript</button>
+      </div>
+
+      <div class="project-status" aria-live="polite">
+        프로젝트 로딩 중...
+      </div>
+
+      <div class="project-grid"></div>
+    </section>
+
+    <section id="skills" class="skills section">
+      <h2>Skills</h2>
+      <ul class="skill-list">
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+        <li>Git</li>
+        <li>GitHub</li>
+        <li>Python</li>
+      </ul>
+    </section>
+
+    <section id="contact" class="contact section">
+      <h2>Contact</h2>
+
+      <form class="contact-form" novalidate>
+        <div class="form-group">
+          <label for="name">이름</label>
+          <input type="text" id="name" name="name" />
+          <p class="error-message" id="nameError"></p>
+        </div>
+
+        <div class="form-group">
+          <label for="email">이메일</label>
+          <input type="email" id="email" name="email" />
+          <p class="error-message" id="emailError"></p>
+        </div>
+
+        <div class="form-group">
+          <label for="message">메시지</label>
+          <textarea id="message" name="message"></textarea>
+          <p class="error-message" id="messageError"></p>
+        </div>
+
+        <button type="submit" class="btn">보내기</button>
+        <p class="form-success"></p>
+      </form>
+    </section>
+  </main>
+
+  <button class="scroll-top" type="button" aria-label="맨 위로 이동">
+    ↑
+  </button>
+
+  <footer class="footer">
+    <p>&copy; 2026 Kwon Chang Beom. All rights reserved.</p>
+    <ul class="social-links">
+      <li><a href="https://github.com/7eerup" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+    </ul>
+  </footer>
+</body>
+</html>
