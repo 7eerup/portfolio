@@ -1,3 +1,26 @@
+/* =========================
+   Reset / 브라우저 기본 초기화
+   ========================= */
+
+/* 모든 요소 크기 계산을 border 기준으로 통일 */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 기본 margin, padding 제거 */
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* =========================
+   CSS 변수 / 다크모드 색상
+   ========================= */
+
+/* 기본(라이트) 테마 변수 */
 :root {
   --color-bg: #ffffff;
   --color-surface: #f5f7fb;
@@ -6,16 +29,20 @@
   --color-primary: #2563eb;
   --color-border: #e5e7eb;
 
+  /* 기본 폰트 */
   --font-main: Arial, sans-serif;
 
+  /* 공통 여백 변수 */
   --space-sm: 8px;
   --space-md: 16px;
   --space-lg: 32px;
   --space-xl: 64px;
 
+  /* 카드 그림자 */
   --shadow-card: 0 8px 24px rgba(0, 0, 0, 0.08);
 }
 
+/* 다크모드 색상 변수 */
 [data-theme="dark"] {
   --color-bg: #111827;
   --color-surface: #1f2937;
@@ -27,59 +54,81 @@
   --shadow-card: 0 8px 24px rgba(0, 0, 0, 0.35);
 }
 
-* {
-  box-sizing: border-box;
-}
+/* =========================
+   공통 기본 스타일
+   ========================= */
 
+/* 부드러운 스크롤 */
 html {
   scroll-behavior: smooth;
 }
 
+/* body 기본 스타일 */
 body {
-  margin: 0;
   font-family: var(--font-main);
   background: var(--color-bg);
   color: var(--color-text);
   line-height: 1.6;
 }
 
+/* 링크 기본 밑줄 제거 */
 a {
   color: inherit;
   text-decoration: none;
 }
 
+/* 이미지 반응형 처리 */
 img {
   max-width: 100%;
   display: block;
 }
 
+/* =========================
+   Header / Navigation
+   index.html
+   <header class="header">
+   ========================= */
+
+/* 상단 고정 헤더 */
 .header {
   position: sticky;
   top: 0;
   z-index: 10;
   background: var(--color-bg);
   border-bottom: 1px solid var(--color-border);
-  transition: background 0.3s, box-shadow 0.3s;
+
+  transition:
+    background 0.3s,
+    box-shadow 0.3s;
 }
 
+/* 스크롤 시 그림자 추가 */
 .header.scrolled {
   box-shadow: var(--shadow-card);
 }
 
+/* 네비게이션 레이아웃 */
 .nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
+
   gap: var(--space-md);
+
   max-width: 1100px;
   margin: 0 auto;
   padding: var(--space-md);
 }
 
+/* 로고 스타일 */
 .logo {
   font-weight: 700;
   font-size: 20px;
 }
+
+/* =========================
+   공통 버튼 스타일
+   ========================= */
 
 .menu-toggle,
 .theme-toggle,
@@ -88,77 +137,129 @@ img {
 .filter-btn {
   border: none;
   cursor: pointer;
-  transition: transform 0.2s, background 0.2s;
+
+  transition:
+    transform 0.2s,
+    background 0.2s;
 }
+
+/* =========================
+   모바일 햄버거 버튼
+   ========================= */
 
 .menu-toggle {
   display: block;
+
   background: var(--color-primary);
   color: #ffffff;
+
   padding: 8px 12px;
+
   border-radius: 8px;
 }
 
+/* =========================
+   모바일 네비게이션 메뉴
+   ========================= */
+
 .nav-menu {
   display: none;
+
   position: absolute;
   top: 64px;
   left: 16px;
   right: 16px;
+
   margin: 0;
   padding: var(--space-md);
+
   list-style: none;
+
   background: var(--color-surface);
+
   border: 1px solid var(--color-border);
   border-radius: 12px;
 }
 
+/* active 클래스 추가 시 메뉴 표시 */
 .nav-menu.active {
   display: grid;
   gap: var(--space-md);
 }
 
+/* =========================
+   다크모드 버튼
+   ========================= */
+
 .theme-toggle {
   background: var(--color-surface);
   color: var(--color-text);
+
   border: 1px solid var(--color-border);
+
   padding: 8px 12px;
+
   border-radius: 8px;
 }
 
+/* =========================
+   공통 section 레이아웃
+   ========================= */
+
 .section {
   max-width: 1100px;
+
   margin: 0 auto;
+
   padding: var(--space-xl) var(--space-md);
 }
 
+/* =========================
+   Hero 섹션
+   <section id="hero">
+   ========================= */
+
 .hero {
   min-height: 70vh;
+
   display: grid;
+
   align-content: center;
+
   gap: var(--space-md);
 }
 
+/* Hero 제목 */
 .hero h1 {
   margin: 0;
+
   font-size: 36px;
   line-height: 1.2;
 }
 
+/* Hero 설명 */
 .hero p {
   color: var(--color-muted);
 }
 
+/* =========================
+   공통 버튼
+   ========================= */
+
 .btn {
   display: inline-block;
-  width: fit-content;
+
   background: var(--color-primary);
   color: #ffffff;
+
   padding: 12px 18px;
+
   border-radius: 10px;
+
   font-weight: 700;
 }
 
+/* hover 시 살짝 위로 이동 */
 .btn:hover,
 .filter-btn:hover,
 .theme-toggle:hover,
@@ -166,184 +267,288 @@ img {
   transform: translateY(-2px);
 }
 
-.about-content {
+/* =========================
+   Introduction 섹션
+   ========================= */
+
+.introduction-content {
   display: grid;
+
   gap: var(--space-md);
+
   background: var(--color-surface);
+
   padding: var(--space-md);
+
   border-radius: 16px;
+
   box-shadow: var(--shadow-card);
 }
 
-.about-content img {
+/* 프로필 이미지 둥글게 */
+.introduction-content img {
   border-radius: 16px;
 }
 
-.skill-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-sm);
-  padding: 0;
-  list-style: none;
-}
+/* =========================
+   프로젝트 필터 버튼
+   ========================= */
 
-.skill-list li,
 .filter-btn {
   background: var(--color-surface);
+
+  color: var(--color-text);
+
   border: 1px solid var(--color-border);
+
   padding: 8px 12px;
+
   border-radius: 999px;
 }
 
+/* 필터 버튼 영역 */
 .project-filter {
   display: flex;
+
   flex-wrap: wrap;
+
   gap: var(--space-sm);
+
   margin-bottom: var(--space-md);
 }
 
-.filter-btn {
-  color: var(--color-text);
-}
-
+/* 현재 활성 필터 버튼 */
 .filter-btn.active {
   background: var(--color-primary);
   color: #ffffff;
 }
 
+/* =========================
+   Projects 섹션
+   ========================= */
+
+/* 프로젝트 상태 메시지 */
 .project-status {
   margin-bottom: var(--space-md);
   color: var(--color-muted);
 }
 
+/* 프로젝트 카드 Grid */
 .project-grid {
   display: grid;
+
   gap: var(--space-md);
+
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
 }
 
+/* 프로젝트 카드 */
 .project-card {
   background: var(--color-surface);
+
   border: 1px solid var(--color-border);
+
   border-radius: 16px;
+
   padding: var(--space-md);
+
   box-shadow: var(--shadow-card);
+
   transition: transform 0.2s;
 }
 
+/* 카드 hover 효과 */
 .project-card:hover {
   transform: translateY(-4px);
 }
 
+/* =========================
+   Contact 섹션
+   ========================= */
+
+/* 문의 폼 */
 .contact-form {
   display: grid;
+
   gap: var(--space-md);
+
   max-width: 600px;
 }
 
+/* input 그룹 */
 .form-group {
   display: grid;
+
   gap: var(--space-sm);
 }
 
+/* input, textarea 공통 */
 input,
 textarea {
   width: 100%;
+
   padding: 12px;
+
   border: 1px solid var(--color-border);
+
   border-radius: 10px;
+
   background: var(--color-surface);
+
   color: var(--color-text);
+
   font: inherit;
 }
 
+/* textarea 높이 */
 textarea {
   min-height: 140px;
+
   resize: vertical;
 }
 
+/* 에러 메시지 */
 .error-message {
   margin: 0;
+
   color: #dc2626;
+
   font-size: 14px;
 }
 
+/* 성공 메시지 */
 .form-success {
   color: #16a34a;
+
   font-weight: 700;
 }
 
+/* =========================
+   Scroll Top 버튼
+   ========================= */
+
 .scroll-top {
   display: none;
+
   position: fixed;
+
   right: 20px;
   bottom: 20px;
+
   background: var(--color-primary);
+
   color: #ffffff;
+
   width: 44px;
   height: 44px;
+
   border-radius: 50%;
 }
 
+/* active 시 표시 */
 .scroll-top.active {
   display: block;
 }
 
+/* =========================
+   Footer
+   ========================= */
+
 .footer {
   padding: var(--space-lg) var(--space-md);
+
   text-align: center;
+
   background: var(--color-surface);
 }
 
+/* 소셜 링크 정렬 */
 .social-links {
   display: flex;
+
   justify-content: center;
+
   gap: var(--space-md);
+
   padding: 0;
+
   list-style: none;
 }
 
+/* =========================
+   스크롤 애니메이션
+   ========================= */
+
+/* 기본 숨김 상태 */
 .reveal {
   opacity: 0;
+
   transform: translateY(24px);
-  transition: opacity 0.5s, transform 0.5s;
+
+  transition:
+    opacity 0.5s,
+    transform 0.5s;
 }
 
+/* 화면 진입 시 표시 */
 .reveal.active {
   opacity: 1;
+
   transform: translateY(0);
 }
 
+/* =========================
+   Tablet Responsive
+   768px 이상
+   ========================= */
+
 @media (min-width: 768px) {
+  /* 태블릿 이상에서는 햄버거 숨김 */
   .menu-toggle {
     display: none;
   }
 
+  /* 메뉴 가로 배치 */
   .nav-menu {
     position: static;
+
     display: flex;
+
     gap: var(--space-md);
+
     padding: 0;
+
     border: none;
+
     background: transparent;
   }
 
-  .about-content {
+  /* 소개 영역 2컬럼 */
+  .introduction-content {
     grid-template-columns: 240px 1fr;
+
     align-items: center;
   }
 
+  /* Hero 제목 크기 증가 */
   .hero h1 {
     font-size: 48px;
   }
 }
 
+/* =========================
+   Desktop Responsive
+   1024px 이상
+   ========================= */
+
 @media (min-width: 1024px) {
+  /* section 상하 여백 증가 */
   .section {
     padding-top: 96px;
     padding-bottom: 96px;
   }
 
+  /* Hero 제목 더 크게 */
   .hero h1 {
     font-size: 56px;
   }

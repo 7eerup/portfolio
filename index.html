@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko" data-theme="light">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,6 +9,7 @@
   <link rel="stylesheet" href="./css/style.css" />
   <script src="./js/main.js" defer></script>
 </head>
+
 <body>
   <header class="header">
     <nav class="nav" aria-label="메인 메뉴">
@@ -20,7 +22,6 @@
       <ul class="nav-menu">
         <li><a href="#introduction">Introduction</a></li>
         <li><a href="#projects">Projects</a></li>
-        <li><a href="#skills">Skills</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
 
@@ -32,8 +33,10 @@
 
   <main>
     <section id="hero" class="hero section">
-      <h1>AI Software Engineer</h1>
-      <p>Kwon Chang-beom is an AI Software Engineer based in Seoul.</p>
+      <h1>
+        <span class="typing-text"></span>
+      </h1>
+      <p>Kwon Chang-beom is an AI Software Engineer</p>
       <a href="#projects" class="btn">프로젝트</a>
     </section>
 
@@ -49,14 +52,10 @@
       </article>
     </section>
 
-        <section id="projects" class="projects section">
+    <section id="projects" class="projects section">
       <h2>Projects</h2>
 
-      <div class="project-filter">
-        <button type="button" class="filter-btn active" data-filter="all">전체</button>
-        <button type="button" class="filter-btn" data-filter="html">HTML</button>
-        <button type="button" class="filter-btn" data-filter="javascript">JavaScript</button>
-      </div>
+      <div class="project-filter"></div>
 
       <div class="project-status" aria-live="polite">
         프로젝트 로딩 중...
@@ -65,17 +64,6 @@
       <div class="project-grid"></div>
     </section>
 
-    <section id="skills" class="skills section">
-      <h2>Skills</h2>
-      <ul class="skill-list">
-        <li>HTML</li>
-        <li>CSS</li>
-        <li>JavaScript</li>
-        <li>Git</li>
-        <li>GitHub</li>
-        <li>Python</li>
-      </ul>
-    </section>
 
     <section id="contact" class="contact section">
       <h2>Contact</h2>
@@ -116,4 +104,5 @@
     </ul>
   </footer>
 </body>
+
 </html>
